@@ -1,0 +1,27 @@
+--INSERT ALL-SIN CONDICIONES por cada fila de la subconsulta se inserta una fila en las tablas destino
+
+/*INSERT ALL-Con condiciones. Por cada fila de la subconsulta se inserta una fila en las tablas
+de destino basado en una condición
+
+INSERT FIRST- con condiciones. Por cada fila de la subconsulta se inserta una fila
+en la primera tabla del destino que cumpla una condición
+
+PIVOTING INSERT- convertir una fila no relacional en una fila normalizada*/
+CREATE TABLE NOM_EMPLES(COD_EMPLE NUMBER, FIRST_NAME VARCHAR2(100));
+CREATE TABLE SALARIOS(COD_EMPLE NUMBER,SALARIO NUMBER);
+
+INSERT ALL --AGREGAR INTOS POR EL NUMERO DE COLUMNAS EN LA TABLA
+    INTO NOM_EMPLES VALUES(EMPLOYEE_ID,FIRST_NAME)
+    INTO SALARIOS VALUES(EMPLOYEE_ID,SALARY)
+SELECT * FROM EMPLOYEES;
+--107 X 2
+SELECT * FROM NOM_EMPLES;
+SELECT * FROM SALARIOS;
+
+INSERT ALL 
+    INTO NOM_EMPLES VALUES(999,'PEDRO')
+    INTO SALARIOS VALUES(999,1000) --VA A DAR ERROR POR QUE NECESITAMOS
+SELECT 1 FROM DUAL;-- POR CADA FILA DEVUELTA POR DUAL CARGA EL NUM DE FILAS
+--SUBCONSULTA
+SELECT * FROM NOM_EMPLES WHERE COD_EMPLE = 999;
+SELECT * FROM SALARIOS WHERE COD_EMPLE = 999;

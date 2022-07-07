@@ -1,0 +1,2 @@
+show user;
+GRANT CREATE SYNONYM TO user2;

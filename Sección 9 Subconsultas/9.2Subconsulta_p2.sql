@@ -1,0 +1,14 @@
+--Buscar que empleados trabajan donde está Douglas Grant
+SELECT FIRST_NAME, DEPARTMENT_ID FROM EMPLOYEES 
+WHERE DEPARTMENT_ID=(SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE FIRST_NAME='Douglas'
+AND LAST_NAME='Grant');
+
+SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE FIRST_NAME='Douglas'
+AND LAST_NAME='Grant';
+--recomendiación, prueba primero la subconsulta y luego la consulta principal
+--buscar empleados que ganen más que la media
+SELECT AVG(SALARY) FROM EMPLOYEES;
+
+SELECT FIRST_NAME, LAST_NAME,SALARY FROM EMPLOYEES
+WHERE SALARY > (SELECT AVG(SALARY) FROM EMPLOYEES) AND
+DEPARTMENT_ID =50;
